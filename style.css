@@ -1,0 +1,28 @@
+:root {
+  --clr-primary: hsl(249, 99%, 64%);
+  --clr-secondary: hsl(278, 94%, 30%);
+
+  --clr-err: hsl(0, 100%, 66%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-neutral-900: hsl(270, 3%, 87%);
+  --clr-neutral-500: hsl(279, 6%, 55%);
+  --clr-neutral-100: hsl(278, 68%, 11%);
+  /* - Linear gradient (active input border): hsl(249, 99%, 64%) to hsl(278, 94%, 30%) */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.8rem;
+}
