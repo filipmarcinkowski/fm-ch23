@@ -38,6 +38,7 @@
               alt="credit card front"
             />
             <div class="card-front__data">
+              <div class="circle">&nbsp;</div>
               <p class="card-front__number">0000 0000 0000 0000</p>
               <div class="card-front__name-box">
                 <h1 class="card-front__name">Jane Appleseed</h1>
@@ -52,29 +53,39 @@
               src="./images/bg-card-back.png"
               alt="credit card back"
             />
-            <!-- <p class="card-back__cvc">000</p> -->
+            <div class="card-back__data">
+              <p class="card-back__cvc">000</p>
+            </div>
           </div>
         </div>
 
         <!-- FORM -->
         <section class="cc-data__container">
-          <form class="form-container flex flex-col">
+          <form class="form-container flex flex-col hidden">
             <label for="name">Cardholder Name</label>
-            <input id="name" type="text" placeholder="e.g. Jane Appleseed" />
+            <input
+              class="margin-b input"
+              id="name"
+              type="text"
+              placeholder="e.g. Jane Appleseed"
+            />
 
             <label for="number">Card Number</label>
             <input
+              class="margin-b input"
               id="number"
               type="text"
               placeholder="e.g. 1234 5678 9123 0000"
             />
+            <p class="err-msg margin-b hidden">Wrong format, numbers only</p>
             <div class="cc-data__valid grid">
-              <div class="cc-data__date-box validation">
+              <div class="cc-data__date-box">
                 <p class="label">Exp. Date (MM/YY)</p>
                 <div class="box flex gap">
                   <input id="mm" placeholder="MM" type="text" class="input" />
                   <input placeholder="YY" type="text" class="input" />
                 </div>
+                <p class="err-msg margin-b hidden">Can't be blank</p>
               </div>
               <div class="box flex flex-col">
                 <label for="cvc">CVC</label>
@@ -84,17 +95,24 @@
                   type="text"
                   placeholder="e.g. 123"
                 />
+                <p class="err-msg margin-b hidden">Can't be blank</p>
               </div>
             </div>
             <button><a>Confirm</a></button>
           </form>
+          <article class="success form-container">
+            <img
+              src="./images/icon-complete.svg"
+              alt="success icon"
+              class="success-icon margin-b__b"
+            />
+            <p class="thx margin-b">Thank you!</p>
+            <p class="thx-info margin-b__b">We've added your card details</p>
+            <button class="btn"><a>Continue</a></button>
+          </article>
         </section>
       </div>
     </main>
-
-    <!-- Completed state start -->
-
-    <!-- Thank you! We've added your card details Continue -->
 
     <script src="./script.js"></script>
   </body>
