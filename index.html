@@ -39,10 +39,14 @@
             />
             <div class="card-front__data">
               <div class="circle">&nbsp;</div>
-              <p class="card-front__number">0000 0000 0000 0000</p>
+              <p class="card-front__number card-number">0000 0000 0000 0000</p>
               <div class="card-front__name-box">
-                <h1 class="card-front__name">Jane Appleseed</h1>
-                <p class="card-front__valid">00/00</p>
+                <h1 class="card-front__name card-name">Jane Appleseed</h1>
+                <p class="card-front__valid">
+                  <span class="card-mm">00</span>/<span class="card-yy"
+                    >00</span
+                  >
+                </p>
               </div>
             </div>
           </div>
@@ -54,14 +58,14 @@
               alt="credit card back"
             />
             <div class="card-back__data">
-              <p class="card-back__cvc">000</p>
+              <p class="card-back__cvc card-cvc">000</p>
             </div>
           </div>
         </div>
 
         <!-- FORM -->
         <section class="cc-data__container">
-          <form class="form-container flex flex-col hidden">
+          <form class="form form-container flex flex-col hidden">
             <label for="name">Cardholder Name</label>
             <input
               class="margin-b input"
@@ -72,7 +76,7 @@
 
             <label for="number">Card Number</label>
             <input
-              class="margin-b input"
+              class="margin-b input number"
               id="number"
               type="text"
               placeholder="e.g. 1234 5678 9123 0000"
@@ -83,7 +87,7 @@
                 <p class="label">Exp. Date (MM/YY)</p>
                 <div class="box flex gap">
                   <input id="mm" placeholder="MM" type="text" class="input" />
-                  <input placeholder="YY" type="text" class="input" />
+                  <input id="yy" placeholder="YY" type="text" class="input" />
                 </div>
                 <p class="err-msg margin-b hidden">Can't be blank</p>
               </div>
@@ -91,14 +95,14 @@
                 <label for="cvc">CVC</label>
                 <input
                   id="cvc"
-                  class="input"
+                  class="input cvc"
                   type="text"
                   placeholder="e.g. 123"
                 />
                 <p class="err-msg margin-b hidden">Can't be blank</p>
               </div>
             </div>
-            <button><a>Confirm</a></button>
+            <button class="btn-confirm"><a>Confirm</a></button>
           </form>
           <article class="success form-container">
             <img
@@ -108,7 +112,7 @@
             />
             <p class="thx margin-b">Thank you!</p>
             <p class="thx-info margin-b__b">We've added your card details</p>
-            <button class="btn"><a>Continue</a></button>
+            <button class="btn btn-contineu"><a>Continue</a></button>
           </article>
         </section>
       </div>
