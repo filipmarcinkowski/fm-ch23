@@ -10,44 +10,57 @@ const cardNumber = document.querySelectorAll('.number');
 
 const correctNum = /^\d{4}[ ]?\d{4}[ ]?\d{4}[ ]?\d{4}$/g;
 
-const emptyMsg = `<p class="err-msg margin-b">Can't be blank</p>`;
-const numErrMsg = `<p class="err-msg margin-b ">Wrong format, numbers only</p>`;
+const emptyMsg = `<p class="err-msg  err-empty margin-b">Can't be blank</p>`;
+const numErrMsg = `<p class="err-msg   err-num margin-b ">Wrong format, numbers only</p>`;
 
 const checkCard = function (e) {
   e.preventDefault();
   inputFields.forEach(checkData);
 };
 
+const removeErrMsg = function (i) {
+  i.classList.remove('err-color');
+  if (
+    i.nextElementSibling &&
+    i.nextElementSibling.classList.contains('err-msg')
+  )
+    i.nextElementSibling.remove();
+};
+
 const checkData = function (i) {
   const isNumber = i.classList.contains('number');
 
   if (i.value === '') {
+    console.log(i);
+    removeErrMsg(i);
     i.classList.add('err-color');
     i.insertAdjacentHTML('afterend', emptyMsg);
-    return false;
   }
 
-  if (i.value !== '' && !isNumber) {
-    document.querySelector(`.card-${i.getAttribute('id')}`).textContent =
-      i.value;
-    console.log(2);
-    return true;
-  } else if (i.value !== '' && isNumber) {
-    if (!correctNum.test(i.value)) {
-      i.classList.add('err-color');
-      i.insertAdjacentHTML('afterend', numErrMsg);
+  if (i.value !== '') {
+    if (isNumber) {
+      const storeNum = new RegExp(correctNum);
+      const num = storeNum.test(i.value);
+
+      if (num === true) {
+        removeErrMsg(i);
+        document.querySelector(`.card-${i.getAttribute('id')}`).textContent =
+          i.value;
+      } else {
+        removeErrMsg(i);
+        i.classList.add('err-color');
+        i.insertAdjacentHTML('afterend', numErrMsg);
+        document.querySelector(`.card-${i.getAttribute('id')}`).textContent =
+          i.value;
+      }
+    } else {
+      removeErrMsg(i);
       document.querySelector(`.card-${i.getAttribute('id')}`).textContent =
         i.value;
-      return false;
-    } else {
-      return true;
     }
   }
 };
 
-btnConfirm.addEventListener('click', checkCard);
+const isProperValue = function (input) {};
 
-const removeErrMsg = function (i) {
-  if (i.nextElementSibling.classList.contains('err-msg'))
-    i.nextElementSibling.remove();
-};
+btnConfirm.addEventListener('click', checkCard);

@@ -66,6 +66,7 @@
         <!-- FORM -->
         <section class="cc-data__container">
           <form class="form form-container flex flex-col">
+            <!-- name -->
             <label for="name">Cardholder Name</label>
             <input
               class="margin-b input"
@@ -73,33 +74,34 @@
               type="text"
               placeholder="e.g. Jane Appleseed"
             />
-
+            <!-- number -->
             <label for="number">Card Number</label>
             <input
               class="margin-b input number"
               id="number"
               type="text"
               placeholder="e.g. 1234 5678 9123 0000"
+              maxlength="19"
             />
-            <p class="err-msg margin-b hidden">Wrong format, numbers only</p>
+
             <div class="cc-data__valid grid">
               <div class="cc-data__date-box">
                 <p class="label">Exp. Date (MM/YY)</p>
                 <div class="box flex gap">
+                  <!-- exp date -->
                   <input id="mm" placeholder="MM" type="text" class="input" />
                   <input id="yy" placeholder="YY" type="text" class="input" />
                 </div>
-                <p class="err-msg margin-b hidden">Can't be blank</p>
               </div>
               <div class="box flex flex-col">
                 <label for="cvc">CVC</label>
+                <!-- cvc -->
                 <input
                   id="cvc"
                   class="input cvc"
                   type="text"
                   placeholder="e.g. 123"
                 />
-                <p class="err-msg margin-b hidden">Can't be blank</p>
               </div>
             </div>
             <button class="btn-confirm"><a>Confirm</a></button>
